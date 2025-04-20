@@ -1,19 +1,19 @@
-name: Hello CI and Deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+
+permissions:
+  contents: write
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v3
-
-      - name: Say Hello
-        run: echo "CI pipeline is working!"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
